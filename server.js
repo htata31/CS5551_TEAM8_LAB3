@@ -9,19 +9,19 @@ var app = express();
 
 var port = process.env.PORT || 8080;
 
-app.use(express.static(__dirname + '/Public'));
+app.use(express.static(__dirname + '/public'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var url = 'mongodb://htata31:tata1994@ds135993.mlab.com:35993/htata';
 
 //Requiired for managing angular routes without server routes
-app.get('/', function(req, res) {
-    res.render('LoginPage');
-})
-// app.all('*', function(req, res) {
-// 	res.sendFile(path.join(__dirname , 'public/LoginPage.html'));
+// app.get('/', function(req, res) {
+//     res.render('LoginPage');
 // })
+app.all('*', function(req, res) {
+	res.sendFile(path.join(__dirname , 'public/LoginPage.html'));
+})
 
 
 app.post('/enroll', function (req, res) {
