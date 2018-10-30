@@ -19,9 +19,7 @@ var url = 'mongodb://htata31:tata1994@ds135993.mlab.com:35993/htata';
 // app.get('/', function(req, res) {
 //     res.render('LoginPage');
 // })
-app.all('*', function(req, res) {
-	res.sendFile(path.join(__dirname , 'public/LoginPage.html'));
-})
+
 
 
 app.post('/enroll', function (req, res) {
@@ -90,6 +88,9 @@ var insertDocument = function(db, data, callback) {
 };
 
 
+app.all('*', function(req, res) {
+    res.sendFile(path.join(__dirname , 'public/LoginPage.html'));
+})
 
 app.listen(port, function() {
 	console.log('app running')
