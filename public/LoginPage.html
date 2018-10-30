@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 
-<body background="css/Login_Bgimg1.jpg" ng-app="loginApp" ng-controller="loginAppcontroller">
+<body background="Images/Login_Bgimg1.jpg" ng-app="loginApp" ng-controller="loginAppcontroller">
 <h1 align="center" style="font-family: Pristina; font-size: 50px"><b>Mashup Application</b></h1>
 <h2 align="center" style="font-family: Candara; font-size: 25px" ><b>Login/SignUp</b></h2>
 <div class = "loginpage">
@@ -25,12 +25,12 @@
 </div>
 
 
-<div id="modal-wrapper"  class="modal">
+<div id="modal-wrapper" ng-model="modal_wrapper"  class="modal">
 
     <form class="modalcont animate" style="background-color: aliceblue"  action="/action_page.php">
 
         <div class="closecontainer">
-            <span onclick= "closepopup()" class="close" title="Close PopUp">&times;</span>
+            <span  ng-click="closepopup()" class="close" title="Close PopUp">&times;</span>
             <h1 style="text-align:center; font-family: Pristina">Sign Up Form</h1>
         </div>
 
