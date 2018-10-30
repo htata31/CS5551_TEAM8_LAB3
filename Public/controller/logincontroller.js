@@ -77,7 +77,7 @@ app.controller('loginAppcontroller', function($scope, $http,$window) {
                         for (i = 0; i < d.data.length; i++) {
                             if (d.data[i].password == $scope.pwd) {
                                 console.log("matched");
-                                $window.location.href = 'Homepage.html?' + d.data[i].username;
+                                $window.location.href = 'html/Homepage.html?' + d.data[i].username;
                             }
                             else {
                                 $scope.finalErr = "Please enter valid user name and password";
