@@ -67,6 +67,18 @@ button:hover {
     width: 40%;
     padding-bottom: 30px;
 }
+
+.profilecontent{
+    position:relative;
+    left: 20%;
+    background-color: #fefefe;
+    margin: 4% auto 15% auto;
+
+    height: 80%;
+    width: 80%;
+    padding-bottom: 30px;
+}
+
 .container{
     font-family: Candara;
 }

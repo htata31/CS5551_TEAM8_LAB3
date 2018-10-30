@@ -97,4 +97,19 @@ app.controller('loginAppcontroller', function($scope, $http,$window) {
             )
             }
     };
+
+
+    $scope.closepopup = function() {
+        ClearField();
+        }
+    function ClearField()
+    {
+        document.getElementById('modal-wrapper').style.display='none';
+        $scope.username="";
+        $scope.password="";
+        $scope.email="";
+        $scope.repassword="";
+        $scope.policycheck="";
+        checkbox.checked=false;
+    }
 })

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/bootstrap4/bootstrap.min.css">
+    <link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../styles/contact_styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles/contact_responsive.css">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body  ng-app="Profile" ng-controller="ProfileController">
+
+<div class="super_container">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_container d-flex flex-row align-items-center justify-content-start">
+
+                        <!-- Logo -->
+                        <div class="logo_container">
+                            <div class="logo">
+                                <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Explorer</div>-->
+                                <div class="logo_image"><img src="images/Travel_Explorer.png" alt=""></div>
+                                <br>
+                                <div>Make memories around the world</div>
+
+                            </div>
+                        </div>
+
+                        <!-- Main Navigation -->
+                        <nav class="main_nav ml-auto">
+                            <ul class="main_nav_list">
+                                <li class="main_nav_item"><a href="index.html">Home</a></li>
+                                <li class="main_nav_item"><a href="about.html">About us</a></li>
+                                <li class="main_nav_item active"><a href="#">Contact</a></li>
+                                <li class="main_nav_item"><a href="LoginPage.html">Sign Out</a></li>
+                            </ul>
+                        </nav>
+
+
+                        <!-- Hamburger -->
+                        <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+
+    <!-- Home -->
+
+    <!-- Find Form -->
+
+    <div class="find">
+        <!-- Image by https://unsplash.com/@garciasaldana_ -->
+
+        <!-- <div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/find.jpg" data-speed="0.8"></div> -->
+
+    </div>
+
+    <div class="newsletter">
+        <!-- Image by https://unsplash.com/@garciasaldana_ -->
+        <div class="newsletter_background" style="background-image:url(../Images/profile.jpg)"></div>
+        <div class="container">
+
+            <div class="row contact_content">
+                <div class="col-lg-5">
+                    <div class="contact_subtitle">
+                        <p>Profile Details</p>
+                    </div>
+                    <div class="contact_info">
+                        <div class="contact_info_container">
+                            <div class="contact_subtitle">
+                                <ul>
+                                    <li><label ><b> First name :</b></label>
+                                    <input ng-model="fname" type="text" placeholder="Enter your First Name"><br><br>
+                                    </li>
+                                </ul>
+                                    <label ><b> First name :</b></label>
+                                    <input ng-model="fname" type="text" placeholder="Enter your First Name"><br><br>
+                                    </div>
+                                    <label><b> Last Name :</b></label>
+                                    <input ng-model="lname" type="text" placeholder="Enter your Last Name"><br><br>
+                                    <label><b> username :</b></label>
+                                    <input ng-model="user_name" type="text" placeholder="Enter your username"><br><br>
+                                    <label><b> Email :</b></label>
+                                    <input ng-model="p_email" type="text" placeholder="Enter your email"><br><br>
+                                    <label><b> Phone Number :</b></label>
+                                    <input ng-model="pnumber" type="text" placeholder="Enter your Phone Number"><br><br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+</div>
+
+
+
+
+
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../styles/bootstrap4/popper.js"></script>
+<script src="../styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../plugins/greensock/TweenMax.min.js"></script>
+<script src="../plugins/greensock/TimelineMax.min.js"></script>
+<script src="../plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="../plugins/greensock/animation.gsap.min.js"></script>
+<script src="../plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="../plugins/easing/easing.js"></script>
+<script src="../plugins/parallax-js-master/parallax.min.js"></script>
+<script src="..js/contact_custom.js"></script>
+
+
+<!--Loading Profile controller-->
+<script type="text/javascript" src="../controller/ProfileController.js"></script>
+</body>
+</html>
