@@ -15,13 +15,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var url = 'mongodb://htata31:tata1994@ds135993.mlab.com:35993/htata';
 
-//Requiired for managing angular routes without server routes
+
 // app.get('/', function(req, res) {
 //     res.render('LoginPage');
 // })
 
 
-
+//Saving the data into database when the user is registering
 app.post('/enroll', function (req, res) {
     MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
         if(err)
@@ -38,22 +38,7 @@ app.post('/enroll', function (req, res) {
     });
 })
 
-// app.post('/enroll', function (req, res) {
-//     MongoClient.connect(url, function(err, client) {
-//         if(err)
-//         {
-//             res.write("Failed, Error while cosnnecting to Database");
-//             res.end();
-//         }
-//         var db= client.db("htata");
-//         console.log(req.body);
-//         insertDocument(db, req.body, function() {
-//             res.write("Successfully inserted");
-//             res.end();
-//         });
-//     });
-// });
-
+//To fetch the documents from the data base
 app.get('/getData', function (req, res) {
     var searchKeywords = req.query.keywords;
     console.log("Param are "+searchKeywords);
@@ -75,6 +60,7 @@ app.get('/getData', function (req, res) {
     });
 });
 
+//To insert an document in to the data base
 var insertDocument = function(db, data, callback) {
     db.collection('demoase').insertOne( data, function(err, result) {
         if(err)
@@ -87,7 +73,7 @@ var insertDocument = function(db, data, callback) {
     });
 };
 
-
+//Requiired for managing angular routes without server routes
 app.all('*', function(req, res) {
     res.sendFile(path.join(__dirname , 'public/LoginPage.html'));
 })
