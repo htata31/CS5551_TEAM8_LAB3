@@ -166,7 +166,7 @@ app.post('/enroll', function (req, res) {
 app.get('/getAPIData', function (req, res) {
     var interestValue="";
     var searchKeywords = req.query.searchkey;
-    var interest=searchKeywords.substr(searchKeywords.indexOf('**')+2,searchKeywords.length);
+    var interest=searchKeywords.substr(searchKeywords.indexOf('**')+2,searchKeywords.length).toLowerCase();;
     var destination=searchKeywords.substr(0,searchKeywords.indexOf('**'));
     console.log(interest);
     switch(interest.toString())
