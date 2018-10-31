@@ -24,7 +24,7 @@ profile_page.controller('ProfileController', function($scope, $http,$window) {
         };
 
 
-        $http.get('http://127.0.0.1:8080/update?keywords=', dataParams).then(function (d)
+        $http.get('http://127.0.0.1:8080/update', dataParams).then(function (d)
             {
                 console.log(typeof(d));
                 console.log("length is " + d.data.length);
