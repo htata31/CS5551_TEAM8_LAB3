@@ -16,7 +16,7 @@
     <!--<link rel="stylesheet" type="text/css" href="../css/offers_responsive.css">-->
 
 </head>
-<body ng-app="homepage" ng-controller="homeController" >
+<body ng-app="account" ng-controller="AccountController" >
 
 
 
@@ -32,22 +32,22 @@
 
                         <!-- Logo -->
                         <!--<div class="logo_container">-->
-                            <!--<div class="logo">-->
-                                <!--&lt;!&ndash;<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Explorer</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<div class="logo_image"><img src="images/Travel_Explorer.png" alt=""></div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<br>&ndash;&gt;-->
-                                <!--<div>Make memories around the world</div>-->
+                        <!--<div class="logo">-->
+                        <!--&lt;!&ndash;<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Explorer</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="logo_image"><img src="images/Travel_Explorer.png" alt=""></div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                        <!--<div>Make memories around the world</div>-->
 
-                            <!--</div>-->
+                        <!--</div>-->
                         <!--</div>-->
 
                         <!-- Main Navigation -->
                         <nav class="main_nav ml-auto">
                             <ul class="main_nav_list">
-                                <li class="main_nav_item active"><a href="#">Home</a></li>
+                                <li class="main_nav_item"><a href="#">Home</a></li>
                                 <li class="main_nav_item" ng-click="GoProfile()"><a href="#">Profile</a></li>
                                 <li class="main_nav_item" ng-click="GoContact()"><a href="#">Contact</a></li>
-                                <li class="main_nav_item" ng-click="GoSettings()"><a href="#">Account Settings</a></li>
+                                <li class="main_nav_item active" ng-click="GoSettings()"><a href="#">Account Settings</a></li>
                                 <li class="main_nav_item"  ><a href="../LoginPage.html" >Sign Out</a></li>
                             </ul>
                         </nav>
@@ -69,26 +69,14 @@
 
         <div class="home_content">
             <div class="home_content_inner">
-                <!--<div class="home_text_small">discover</div>-->
+                <P>If you want to delete your account Please click below</P></br>
+                <button  ng-click="Delete()" id="form_submit_button button " style="background: red;width: 150px" class=" button ">Delete</button>
 
             </div>
         </div>
     </div>
 </div>
 
-<!--<script>-->
-    <!--var url=window.location.href;-->
-    <!--var userName=(url.substr(45)).replace("%20"," ");-->
-
-    <!--console.log("It is !!!!!!!!!!!"+userName);-->
-    <!--if(userName.indexOf("place")<0) {-->
-        <!--document.getElementById("userDetails").textContent = "Welcome " + userName.toUpperCase() + "!!!! ";-->
-    <!--}-->
-    <!--else {-->
-        <!--document.getElementById("userDetails").textContent = "";-->
-    <!--}-->
-
-<!--</script>-->
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
@@ -98,6 +86,6 @@
 <script src="../plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 <script src="../js/custom.js"></script>
 
-<script type="text/javascript" src="../controller/HomeController.js"></script>
+<script type="text/javascript" src="../controller/AccountController.js"></script>
 </body>
 </html>

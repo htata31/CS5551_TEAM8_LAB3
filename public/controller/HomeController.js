@@ -11,4 +11,7 @@ home_page.controller('homeController', function($scope, $http,$window) {
     $scope.GoContact= function () {
         $window.location.href="contact.html?"+$scope.uname;
     }
+    $scope.GoSettings=function(){
+        $window.location.href="AccountSettings.html?"+$scope.uname;
+    }
 })
