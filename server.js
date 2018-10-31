@@ -79,7 +79,7 @@ app.post('/delete', function (req, res) {
 })
 
 //To fetch the documents from the data base
-app.get('/getData', function (req, res) {
+app.get('/getDataSignIn', function (req, res) {
     var searchKeywords = req.query.keywords;
     console.log("Param are "+searchKeywords);
     MongoClient.connect(url, { useNewUrlParser: true },function(err, client) {
@@ -94,6 +94,31 @@ app.get('/getData', function (req, res) {
         db.collection("demoase").find(query).toArray(function(err, result) {
             if (err) throw err;
             // console.log(result[0].major);
+            client.close();
+            res.json(result);
+        });
+    });
+});
+app.get('/getDataRegister', function (req, res) {
+    var searchKeywords = req.query.keywords;
+    //console.log("Param are "+searchKeywords);
+    //console.log("email "+searchKeywords.substr(0,searchKeywords.indexOf('**')));
+    //console.log("username "+searchKeywords.substr(searchKeywords.indexOf('**')+2,searchKeywords.length));
+    var uname=searchKeywords.substr(searchKeywords.indexOf('**')+2,searchKeywords.length);
+    var email=searchKeywords.substr(0,searchKeywords.indexOf('**'));
+     console.log("email "+email);
+     console.log("username "+uname);
+    MongoClient.connect(url, { useNewUrlParser: true },function(err, client) {
+        if(err)
+        {
+            res.write("Failed, Error while cosnnecting to Database");
+            res.end();
+        }
+        if (err) throw err;
+        var db = client.db("htata");
+        var query = { $or: [ { email: email },  { username:uname } ]};
+        db.collection("demoase").find(query).toArray(function(err, result) {
+            if (err) throw err;
             client.close();
             res.json(result);
         });
