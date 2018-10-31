@@ -1,5 +1,6 @@
 var cors = require('cors');
 var request= require('request');
+var requestclient= require('request-json');
 var express = require('express');
 var bodyParser=require('body-parser');
 const nodemailer  = require('nodemailer');
@@ -7,6 +8,7 @@ var smtpTransport = require('nodemailer-smtp-transport');
 const xoauth2 = require('xoauth2');
 var path=require("path");
 var MongoClient = require('mongodb').MongoClient;
+var client = requestclient.createClient('http://127.0.0.1:8080/');
 
 var app = express();
 
@@ -160,6 +162,51 @@ app.post('/enroll', function (req, res) {
 
     });
 })
+
+app.get('/getAPIData', function (req, res) {
+    var interestValue="";
+    var searchKeywords = req.query.searchkey;
+    var interest=searchKeywords.substr(searchKeywords.indexOf('**')+2,searchKeywords.length).toLowerCase();;
+    var destination=searchKeywords.substr(0,searchKeywords.indexOf('**'));
+    console.log(interest);
+    switch(interest.toString())
+    {
+        case "select":
+            interestValue="";
+            break;
+        case "museum":
+            Setinterest("museum");
+            break;
+        case "devotional":
+            console.log("I am here");
+            Setinterest("hindu_temple");
+            break;
+        case "adventure":
+            Setinterest("amusement_park");
+            break;
+        case "scenic":
+            Setinterest("park");
+            break;
+        case "party":
+            Setinterest("night_club");
+            break;
+
+    }
+
+    function Setinterest(interest)
+    {
+        console.log(interest);
+        interestValue ="&type="+interest;
+        console.log("I am here too");
+        console.log(interestValue);
+    }
+    console.log("destination "+destination);
+    console.log("interest "+interestValue);
+    client.get("https://maps.googleapis.com/maps/api/place/textsearch/json?query="+destination+"+point+of+interest"+interestValue+"&language=en&key=AIzaSyAk8FdCcWPekxegcpFkUAL5frrMc73F-4E", function (error, response, body) {
+        res.send(body);
+    });
+
+});
 
 //To insert an document in to the data base
 var insertDocument = function(db, data, callback) {
