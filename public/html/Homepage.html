@@ -69,26 +69,87 @@
 
         <div class="home_content">
             <div class="home_content_inner">
-                <!--<div class="home_text_small">discover</div>-->
+                    <div class="find">
+                        <div class="container" >
+                            <div class="row" >
+                                <div class="find_form_container">
+                                    <form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
+                                        <div class="find_item">
+                                            <div>Destination:</div>
+                                            <input type="text"  class="destination find_input" id="searchDestination"   ng-model="searchDestination" placeholder="Enter your Destination">
+                                            <h5 style="color: red">{{finalErr}}</h5>
+                                        </div>
+                                        <div class="find_item">
+                                            <div>Interest</div>
+                                            <select name="interest" ng-model="interest" id="interest" class="dropdown_item_select find_input">
+                                                <option>Select</option>
+                                                <option>Museum</option>
+                                                <option>Adventure</option>
+                                                <option>Devotional</option>
+                                                <option>Scenic</option>
+                                                <option>Party</option>
+                                            </select>
+                                        </div>
+                                        <!--<button class="button find_button">Find</button>-->
+                                        <br>
+                                        <div>
+                                            <input type="button" class="button" style="color: #fe435b" ng-click="getSearchResult()" value="Find"/>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div >
 
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row" ng-repeat="x in placesArray">
+                                <div class="col">
+                                    <div class="items item_grid clearfix">
+
+                                        <!-- Item -->
+                                        <div class="item clearfix rating_5">
+                                            <div class="item_image"><img ng-src="{{x.substring(x.indexOf('^^^')+3,x.length)}}"/></div>
+                                            <div class="item_content">
+
+                                                <div class="item_text"><h3>{{x.substring(x.indexOf("***")+3,x.indexOf("^^^"))}}</h3></div>
+                                                <div class="item_text"><h4>{{x.substring(x.indexOf("###")+3,x.indexOf("***"))}}</h4></div>
+                                                <div class="item_text"><h4>{{searchDescription[$index]}}</h4></div>
+                                                <div class="item_text">{{x.substring(0,x.indexOf("###"))}} <i class="fa fa-star"></i> </div>
+                                                <ul>
+                                                    <li><table><tr ng-repeat="x in weekdayHours[$index]">
+                                                        <td class="item_text">{{x}}</td>
+                                                    </tr></table></li>
+
+                                                </ul>
+                                                <!--<div class="rating rating_5" data-rating="5">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>-->
+                                                <div class="item_text"><b>{{author_name_header}}</b> {{reviews[$index].substring(0,reviews[$index].indexOf('@@'))}} <b>{{user_rating_header}} </b> {{reviews[$index].substring(reviews[$index].indexOf('$$')+2,reviews[$index].length)}}</div>
+                                                <div class="item_text">{{comment_header}}</b> {{reviews[$index].substring(reviews[$index].indexOf('##')+2,reviews[$index].indexOf('$$'))}}</div>
+                                                <!--<div class="item_more_link"><a href="#">Read More</a></div>-->
+                                            </div>
+                                        </div>
+                                        <!-- Item -->
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--<script>-->
-    <!--var url=window.location.href;-->
-    <!--var userName=(url.substr(45)).replace("%20"," ");-->
-
-    <!--console.log("It is !!!!!!!!!!!"+userName);-->
-    <!--if(userName.indexOf("place")<0) {-->
-        <!--document.getElementById("userDetails").textContent = "Welcome " + userName.toUpperCase() + "!!!! ";-->
-    <!--}-->
-    <!--else {-->
-        <!--document.getElementById("userDetails").textContent = "";-->
-    <!--}-->
-
-<!--</script>-->
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
