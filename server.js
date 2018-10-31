@@ -20,9 +20,8 @@ var url = 'mongodb://htata31:tata1994@ds135993.mlab.com:35993/htata';
 //     res.render('LoginPage');
 // })
 
-
-//Saving the data into database when the user is registering
-app.post('/enroll', function (req, res) {
+app.post('/update', function (req, res) {
+    var searchKeywords = req.query.keywords;
     MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
         if(err)
         {
@@ -30,9 +29,12 @@ app.post('/enroll', function (req, res) {
             res.end();
         }
         var db= client.db('htata');
-        insertDocument(db, req.body, function() {
-            res.write("Successfully inserted");
-            res.end();
+        var query = { username: searchKeywords };
+        db.collection("demoase").updateOne(searchKeywords)(req.body,function(err, result) {
+            if (err) throw err;
+            // console.log(result[0].major);
+            $set: { 'size.uom': 'cm', status: 'P' },
+            client.close();
         });
 
     });
@@ -59,6 +61,23 @@ app.get('/getData', function (req, res) {
         });
     });
 });
+
+//Saving the data into database when the user is registering
+app.post('/enroll', function (req, res) {
+    MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
+        if(err)
+        {
+            res.write("Failed, Error while connecting to Database");
+            res.end();
+        }
+        var db= client.db('htata');
+        insertDocument(db, req.body, function() {
+            res.write("Successfully inserted");
+            res.end();
+        });
+
+    });
+})
 
 //To insert an document in to the data base
 var insertDocument = function(db, data, callback) {

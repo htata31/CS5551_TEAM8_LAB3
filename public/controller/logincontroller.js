@@ -34,7 +34,7 @@ app.controller('loginAppcontroller', function($scope, $http,$window) {
                         $scope.message = data;
                         console.log("here " + data);
                         $scope.finalMsg = "Registration Successful";
-                        $window.location.href = 'LoginPage.html';
+                        $window.location.href = 'LoginPage.html?'+$scope.username;
                     });
                     req.error(function (data, status, headers, config) {
                         // alert( "failure message: " + JSON.stringify({data: data}));
