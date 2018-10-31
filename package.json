@@ -10,8 +10,11 @@
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "mongodb": "^3.1.8",
+    "nodemailer": "^4.6.8",
+    "nodemailer-smtp-transport": "^2.7.4",
     "path": "^0.12.7",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "xoauth2": "^1.2.0"
   },
   "author": "harish",
   "license": "ISC"
