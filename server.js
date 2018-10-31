@@ -50,7 +50,8 @@ app.post('/update', function (req, res) {
 
             }
         ).then(function(err, result) {
-            if (err) throw err;
+            //if (err) throw err;
+            res.send("Updated Succesfully");
             client.close();
         });
 

@@ -99,7 +99,7 @@ app.controller('loginAppcontroller', function($scope, $http,$window) {
                     }
                     else {
                         $scope.signInErr = "Username is not available";
-                        console.log("Username is not available");
+                        console.log("Invalid Username or Password ");
                     }
                 }, function (err) {
                     console.log(err);

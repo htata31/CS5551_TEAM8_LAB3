@@ -29,6 +29,10 @@ profile_page.controller('ProfileController', function($scope, $http,$window) {
             {
                 console.log(typeof(d));
                 console.log("length is " + d.data.length);
+                $scope.finishmsg="Updated succesfully";
+                $scope.fname="";
+                $scope.lname="";
+                $scope.number="";
 
             }, function (err) {
                 console.log(err);
