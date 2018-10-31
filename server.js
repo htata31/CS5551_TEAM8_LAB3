@@ -2,6 +2,9 @@ var cors = require('cors');
 var request= require('request');
 var express = require('express');
 var bodyParser=require('body-parser');
+const nodemailer  = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+const xoauth2 = require('xoauth2');
 var path=require("path");
 var MongoClient = require('mongodb').MongoClient;
 
@@ -14,14 +17,21 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var url = 'mongodb://htata31:tata1994@ds135993.mlab.com:35993/htata';
+var transporter = nodemailer.createTransport(smtpTransport({
+        service: 'gmail',
+        auth:{
 
-
-// app.get('/', function(req, res) {
-//     res.render('LoginPage');
-// })
+            xoauth2:xoauth2.createXOAuth2Generator({
+                user: 'saranakkiraj23@gmail.com',
+                clientId: '621348341638-s2t4chhegtfbb8ienss816lu212n0105.apps.googleusercontent.com',
+                clientSecret: 'PCYERMiD0XKvu98jE3jjW_SM',
+                refreshToken:'1/Qib0XS2ysWWDXrzyjRopOSkuLSlaqv6VjYKtE6y8wLg'
+            })
+        }
+    }
+));
 
 app.post('/update', function (req, res) {
-    //var searchKeywords = req.query.keywords;
 
     MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
         if(err)
@@ -72,7 +82,7 @@ app.post('/delete', function (req, res) {
 app.get('/getData', function (req, res) {
     var searchKeywords = req.query.keywords;
     console.log("Param are "+searchKeywords);
-    MongoClient.connect(url, function(err, client) {
+    MongoClient.connect(url, { useNewUrlParser: true },function(err, client) {
         if(err)
         {
             res.write("Failed, Error while cosnnecting to Database");
@@ -99,6 +109,25 @@ app.post('/enroll', function (req, res) {
             res.end();
         }
         var db= client.db('htata');
+        var mailOptions = {
+            from: 'saranakkiraj23@gmail.com',
+            to:req.body.email,
+            subject: 'Welcome User!!!',
+            text: 'You have been succesfully Registered'
+        }
+
+        transporter.sendMail(mailOptions, function (err, res) {
+            if(err)
+            {
+                console.log(err);
+
+            }
+            else
+            {
+                console.log('Email is Sent');
+            }
+
+        })
         insertDocument(db, req.body, function() {
             res.write("Successfully inserted");
             res.end();
