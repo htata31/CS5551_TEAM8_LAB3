@@ -20,33 +20,53 @@ var url = 'mongodb://htata31:tata1994@ds135993.mlab.com:35993/htata';
 //     res.render('LoginPage');
 // })
 
-// app.post('/update', function (req, res) {
-//     //var searchKeywords = req.query.keywords;
-//     console.log(req.body);
-//     MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
-//         if(err)
-//         {
-//             res.write("Failed, Error while connecting to Database");
-//             res.end();
-//         }
-//         var db= client.db('htata');
-//         //var query = { username: searchKeywords };
-//         // db.collection('demoase').updateMany(
-//         //     { username: { $lt: 50 } },
-//         //     {
-//         //         $set: { 'size.uom': 'in', status: 'P' },
-//         //         $currentDate: { lastModified: true }
-//         //     }
-//         // );
-//         // db.collection("demoase").updateOne(searchKeywords)(req.body,function(err, result) {
-//         //     if (err) throw err;
-//         //     // console.log(result[0].major);
-//         //     //$set: { 'fname': 'cm', status: 'P' },
-//         //     client.close();
-//         // });
-//
-//     });
-// })
+app.post('/update', function (req, res) {
+    //var searchKeywords = req.query.keywords;
+
+    MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
+        if(err)
+        {
+            res.write("Failed, Error while connecting to Database");
+            res.end();
+        }
+        var db= client.db('htata');
+
+        db.collection('demoase').updateMany(
+            { "username": req.body.username },
+            {
+                $set: { 'firstname': req.body.firstname, "lastname": req.body.lastname,"number":req.body.number }
+
+            }
+        ).then(function(err, result) {
+            if (err) throw err;
+            client.close();
+        });
+
+
+    });
+})
+
+app.post('/delete', function (req, res) {
+    var searchKeywords = req.query.keywords;
+    console.log(searchKeywords);
+    MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client,callback) {
+        if(err)
+        {
+            res.write("Failed, Error while connecting to Database");
+            res.end();
+        }
+        var db= client.db('htata');
+
+        db.collection('demoase').deleteOne({ "username": searchKeywords }).then(function(err, result) {
+            //if (err) throw err;
+
+            res.send("Account Succesfully deleted");
+            client.close();
+
+            //callback();
+        });
+    });
+})
 
 //To fetch the documents from the data base
 app.get('/getData', function (req, res) {

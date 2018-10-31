@@ -12,4 +12,7 @@ home_page.controller('contactController', function($scope, $http,$window) {
     $scope.GoHome= function () {
         $window.location.href="Homepage.html?"+$scope.uname;
     }
+    $scope.GoSettings=function(){
+        $window.location.href="AccountSettings.html?"+$scope.uname;
+    }
 })
