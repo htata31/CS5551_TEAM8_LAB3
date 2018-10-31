@@ -9,6 +9,9 @@
     <link href="../plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/contact_styles.css">
     <link rel="stylesheet" type="text/css" href="../styles/contact_responsive.css">
+    <link rel="stylesheet" type="text/css" href="../css/contact_styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/contact_responsive.css">
+
     <link rel="stylesheet" href="../css/app.css">
 </head>
 <body  ng-app="Profile" ng-controller="ProfileController">
@@ -25,9 +28,9 @@
                         <div class="logo_container">
                             <div class="logo">
                                 <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Explorer</div>-->
-                                <div class="logo_image"><img src="images/Travel_Explorer.png" alt=""></div>
-                                <br>
-                                <div>Make memories around the world</div>
+                                <!--<div class="logo_image"><img src="images/Travel_Explorer.png" alt=""></div>-->
+                                <!--<br>-->
+                                <!--<div>Make memories around the world</div>-->
 
                             </div>
                         </div>
@@ -35,10 +38,11 @@
                         <!-- Main Navigation -->
                         <nav class="main_nav ml-auto">
                             <ul class="main_nav_list">
-                                <li class="main_nav_item"><a href="index.html">Home</a></li>
-                                <li class="main_nav_item"><a href="about.html">About us</a></li>
-                                <li class="main_nav_item active"><a href="#">Contact</a></li>
-                                <li class="main_nav_item"><a href="LoginPage.html">Sign Out</a></li>
+                                <li class="main_nav_item" ng-click="GoHome()"><a href="#">Home</a></li>
+                                <li class="main_nav_item active"><a href="#">Profile</a></li>
+                                <li class="main_nav_item" ng-click="GoContact()"><a href="#">Contact</a></li>
+                                <li class="main_nav_item"><a href="../LoginPage.html">Sign Out</a></li>
+
                             </ul>
                         </nav>
 
@@ -68,41 +72,28 @@
     <div class="newsletter">
         <!-- Image by https://unsplash.com/@garciasaldana_ -->
         <div class="newsletter_background" style="background-image:url(../Images/profile.jpg)"></div>
-        <div class="container">
 
-            <div class="row contact_content">
-                <div class="col-lg-5">
-                    <div class="contact_subtitle">
-                        <p>Profile Details</p>
-                    </div>
-                    <div class="contact_info">
-                        <div class="contact_info_container">
-                            <div class="contact_subtitle">
-                                <ul>
-                                    <li><label ><b> First name :</b></label>
-                                    <input ng-model="fname" type="text" placeholder="Enter your First Name"><br><br>
-                                    </li>
-                                </ul>
-                                    <label ><b> First name :</b></label>
-                                    <input ng-model="fname" type="text" placeholder="Enter your First Name"><br><br>
-                                    </div>
-                                    <label><b> Last Name :</b></label>
-                                    <input ng-model="lname" type="text" placeholder="Enter your Last Name"><br><br>
-                                    <label><b> username :</b></label>
-                                    <input ng-model="user_name" type="text" placeholder="Enter your username"><br><br>
-                                    <label><b> Email :</b></label>
-                                    <input ng-model="p_email" type="text" placeholder="Enter your email"><br><br>
-                                    <label><b> Phone Number :</b></label>
-                                    <input ng-model="pnumber" type="text" placeholder="Enter your Phone Number"><br><br>
-                            </div>
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Contact Form -->
+                        <div class="contact_form_container">
+                            <div class="contact_title text-center">Update Your Profile</div>
+                            <form ng-submit="sendmail()" id="contact_form" class="contact_form text-center">
+                                <input type="text" ng-model="fname" id="fname" class="contact_form_name input_field" placeholder="First Name" required="required" data-error="Name is required.">
+                                <input type="text" ng-model="lname" id="lname" class="contact_form_email input_field" placeholder="Last Name" required="required" data-error="Email is required.">
+                                <input type="text" ng-model="p_uname" id="uname" class="contact_form_subject input_field" placeholder="User Name" required="required" data-error="Subject is required.">
+                                <input type="text" ng-model="number" id="phone" class="contact_form_subject input_field" placeholder="Phone Number" required="required" data-error="Subject is required.">
+                                <button  ng-click="Update()" id="form_submit_button" style="background: blue;width: 200px" class=" button ">Update</button>
+                            </form>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-
-
-
+        </div>
 
         </div>
     </div>

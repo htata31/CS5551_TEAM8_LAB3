@@ -12,12 +12,11 @@
     <link href="../plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="../styles/responsive.css">
-    <link rel="stylesheet" type="text/css" href="../css/offers_styles.css">
-    <link rel="stylesheet" type="text/css" href="../css/offers_responsive.css">
-
+    <!--<link rel="stylesheet" type="text/css" href="../css/offers_styles.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/offers_responsive.css">-->
 
 </head>
-<body background="../Images/Login_Bgimg1.jpg" >
+<body ng-app="homepage" ng-controller="homeController" >
 
 
 
@@ -46,8 +45,9 @@
                         <nav class="main_nav ml-auto">
                             <ul class="main_nav_list">
                                 <li class="main_nav_item active"><a href="#">Home</a></li>
-                                <li class="main_nav_item"><a href="profilepage.html">Profile</a></li>
-                                <li class="main_nav_item" onclick="signOut();"><a href="" >Sign Out</a></li>
+                                <li class="main_nav_item" ng-click="GoProfile()"><a href="#">Profile</a></li>
+                                <li class="main_nav_item" ng-click="GoContact()"><a href="#">Contact</a></li>
+                                <li class="main_nav_item"  ><a href="../LoginPage.html" >Sign Out</a></li>
                             </ul>
                         </nav>
 
@@ -75,7 +75,19 @@
     </div>
 </div>
 
+<!--<script>-->
+    <!--var url=window.location.href;-->
+    <!--var userName=(url.substr(45)).replace("%20"," ");-->
 
+    <!--console.log("It is !!!!!!!!!!!"+userName);-->
+    <!--if(userName.indexOf("place")<0) {-->
+        <!--document.getElementById("userDetails").textContent = "Welcome " + userName.toUpperCase() + "!!!! ";-->
+    <!--}-->
+    <!--else {-->
+        <!--document.getElementById("userDetails").textContent = "";-->
+    <!--}-->
+
+<!--</script>-->
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script src="../styles/bootstrap4/popper.js"></script>
 <script src="../styles/bootstrap4/bootstrap.min.js"></script>
@@ -85,5 +97,6 @@
 <script src="../plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 <script src="../js/custom.js"></script>
 
+<script type="text/javascript" src="../controller/HomeController.js"></script>
 </body>
 </html>
