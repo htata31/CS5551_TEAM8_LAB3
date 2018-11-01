@@ -30,9 +30,9 @@
                         <div class="logo_container ">
                             <div class="logo">
                                 <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Explorer</div>-->
-                                <div class="logo_image"><img src="../Images/Travel_Explorer.png" alt=""></div>
-                                <br>
-                                <div>Make memories around the world</div>
+                                <div style="position: relative;top: 0.25%;left:-1%" class="logo_image"><img src="../Images/Travel_Explorer.png" alt=""></div>
+
+                                <div style="position: relative;top: -55%;left:-1%;color:grey;font-size: 9px">Make memories around the world</div>
                             </div>
                         </div>
 
@@ -64,17 +64,18 @@
                     <div class="find">
                         <div class="container" >
                             <div class="row" >
-                                <div class="col-12">
-                                    <div class="find_title text-center">Make Memories Around The World</div>
-                                </div>
+                                <!--<div class="col-12">-->
+                                    <!--<div class="find_title text-center">Make Memories Around The World</div>-->
+                                <!--</div>-->
                                 <div class="find_form_container">
                                     <form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
-                                            <div><b>Destination:</b></div>
-                                            <input type="text"  class="destination find_input" id="searchDestination"   ng-model="searchDestination" placeholder="Enter your Destination">
+                                        <div class="find_title text-center">Make Memories Around The World</div></br>
+                                            <div style="color: white"><b>Destination:</b></div>
+                                            <input type="text"  style="width: 30%" class="destination find_input" id="searchDestination"   ng-model="searchDestination" placeholder="Enter your Destination">
                                             <h5 style="color: red">{{finalErr}}</h5>
-                                            <div><b>Interest:</b></div>
-                                            <select name="interest" ng-model="interest" id="interest" class="dropdown_item_select find_input">
-                                                <option>Select</option>
+                                            <div style="color: white"><b>Interest:</b></div>
+                                            <select name="interest" style="width: 30%" ng-model="interest"  id="interest" class="dropdown_item_select find_input">
+                                                <option value="" selected disabled hidden>Select</option>
                                                 <option>Museum</option>
                                                 <option>Adventure</option>
                                                 <option>Devotional</option>
