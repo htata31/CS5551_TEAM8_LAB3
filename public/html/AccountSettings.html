@@ -32,9 +32,9 @@
                             <div class="logo_container ">
                                 <div class="logo">
                                     <!--<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Explorer</div>-->
-                                    <div class="logo_image"><img src="../Images/Travel_Explorer.png" alt=""></div>
+                                    <div style="position: relative;top: 0.25%;left:-1%" class="logo_image"><img src="../Images/Travel_Explorer.png" alt=""></div>
                                     <br>
-                                    <div>Make memories around the world</div>
+                                    <div style="position: relative;top: -85%;left:-1%;color:grey;font-size: 9px">Make memories around the world</div>
                                 </div>
                             </div>
 
@@ -77,9 +77,15 @@
 
         <div class="home_content">
             <div class="home_content_inner">
-                <P>If you want to delete your account Please click below</P></br>
-                <button  ng-click="Delete()" id="form_submit_button button " style="background: red;width: 150px" class=" button ">Delete</button>
-
+                <div class="find">
+                    <div class="container" >
+                        <div class="row" >
+                            <div class="find_form_container">
+                                <P style="position:relative;top: 25%">If you want to delete your account Please click below</P></br>
+                                <button  ng-click="Delete()" id="form_submit_button button " style="background: red;width: 150px;" class=" button ">Delete</button>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
